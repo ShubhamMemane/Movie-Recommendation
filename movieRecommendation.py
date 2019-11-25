@@ -42,11 +42,11 @@ step3 = sqlContext.registerDataFrameAsTable(two,"corre")
 
 step4 =sqlContext.registerDataFrameAsTable(movies,"movie")
 
-three = spark.sql("select * from movie")
+#three = spark.sql("select * from movie")
 
 four= spark.sql("select m.title recommendation from movie m inner join  corre c on m.movieId in (c.m1,c.m2) where 11 in (c.m1,c.m2 ) AND c.cor > 0.5 AND c.cnt > 40 AND m.title != (SELECT title FROM movie WHERE movieId = 11)")
 
-
+#three.show(truncate=False)
 four.show(truncate=False)
 
 
